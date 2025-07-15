@@ -1,0 +1,2 @@
+环境：Windows Powershell
+以管理员身份运行switchjava.ps1
