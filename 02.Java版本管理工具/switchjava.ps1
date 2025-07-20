@@ -221,7 +221,6 @@ $currentUser = [Security.Principal.WindowsIdentity]::GetCurrent()
 $principal = New-Object Security.Principal.WindowsPrincipal($currentUser)
 if (-not $principal.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)) {
     Write-Log "ERR" "需要升级权限，以管理员权限重新运行。 "
-    Pause
 	exit
 }
 
