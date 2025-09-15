@@ -1,0 +1,50 @@
+{
+  "name": "paste-image-with-hash",
+  "displayName": "Paste Image with Hash Name",
+  "description": "Paste clipboard images into your project with MD/SHA hash as filename. Customize your images' save path",
+  "publisher": "Gisli", 
+  "version": "0.1.0",
+  "engines": { "vscode": "^1.60.0" },
+  "keywords": ["image", "paste", "hash", "markdown", "screenshot"],
+  "icon": "paste-image-with-hash.png",
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:pasteImageHash.paste"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pasteImageHash.paste",
+        "title": "Paste Image (Hash Named)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "pasteImageHash.paste",
+        "key": "ctrl+alt+v",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Paste Image Hash",
+      "properties": {
+        "pasteImageHash.path": {
+          "type": "string",
+          "default": "${currentFileDir}/media",
+          "description": "Images save path. These args are available: ${currentFileDir}, ${projectRoot}"
+        },
+        "pasteImageHash.insertPattern": {
+          "type": "string",
+          "default": "![${imageFileNameWithoutExt}](${imageFilePath})",
+          "description": "Insert into the editor pattern. These args are available: ${imageFileNameWithoutExt}, ${imageFilePath}"
+        },
+        "pasteImageHash.algorithm": {
+          "type": "string",
+          "enum": ["md5", "sha1", "sha256"],
+          "default": "md5",
+          "description": "Choose available hash algorithm: md5, sha1, sha256"
+        }
+      }
+    }
+  }
+}
