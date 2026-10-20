@@ -1,4 +1,4 @@
-# PleaseStopUpdatePCL
+# PleaseStopUpdateMyPCL
 
 一个用于修改 PCL 启动器配置的小工具，通过修改 `setup.ini` 中的 `SystemSystemUpdate` 参数，阻止启动器自动更新。
 
